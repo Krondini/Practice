@@ -8,6 +8,7 @@ void menu()
 		 <<"you would like to use: \n";
 	printf("1.) Caesar Cipher\n");
 	printf("2.) Vigenere Cipher\n");
+	printf("0.) Exit\n");
 
 	return;
 }
