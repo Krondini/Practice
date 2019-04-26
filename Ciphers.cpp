@@ -48,7 +48,6 @@ string VigenereCipher(string input, string key)
 	char EncryptTable[26][26];
 	for (int i = 0; i < input.length(); ++i)
 		input[i] = toupper(input[i]);
-	cout << input << endl;
 	string result = "";
 
 	//Building the encryption table
@@ -62,7 +61,8 @@ string VigenereCipher(string input, string key)
 	{
 		if(input[i] != char(32))
 		{
-			char newChar = EncryptTable[]
+			char newChar = EncryptTable[int(input[i])%26][int((key[i])%key.length())%26];
+			result += newChar;
 		}
 		else
 			result += char(32);
@@ -104,7 +104,9 @@ int main(int argc, char const *argv[])
 			printf("Please enter your key word:\n");
 			string key;
 			cin >> key;
-			VigenereCipher(input, key);
+			cout << "\n\nPlaintext: " << input;
+			cout << "\nKey: " << key;
+			cout << "\nEncrypted: " << VigenereCipher(input, key) << endl;
 		}
 	}
 
