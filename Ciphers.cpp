@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 
@@ -45,6 +46,9 @@ string CaesarCipher(string input, int shift)
 string VigenereCipher(string input, string key)
 {
 	char EncryptTable[26][26];
+	for (int i = 0; i < input.length(); ++i)
+		input[i] = toupper(input[i]);
+	cout << input << endl;
 	string result = "";
 
 	//Building the encryption table
@@ -54,6 +58,15 @@ string VigenereCipher(string input, string key)
 			EncryptTable[i][j] = char(65+(i+j)%26);
 	}
 
+	for (int i = 0; i < input.length(); ++i)
+	{
+		if(input[i] != char(32))
+		{
+			char newChar = EncryptTable[]
+		}
+		else
+			result += char(32);
+	}
 	// for (int i = 0; i < 26; ++i)
 	// {
 	// 	for (int j = 0; j < 26; ++j)
