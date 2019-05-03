@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <cctype>
+#include <cstdlib>
+#include <ctime>
 #include <vector>
 
 using namespace std;
@@ -11,7 +13,7 @@ void menu()
 		 <<"you would like to use: \n";
 	printf("1.) Caesar Cipher\n");
 	printf("2.) Vigenere Cipher\n");
-	printf("3.) Matrix Cipher\n");
+	printf("3.) Hill/Matrix Cipher\n");
 	printf("0.) Exit\n");
 }
 
@@ -28,9 +30,9 @@ string CaesarCipher(string input, int shift)
 		if(input[i] != char(32))
 		{
 			if(isupper(input[i]))
-				result += char(int(input[i]+shift-65)%26 + 65);
+				result += char(int(input[i]+shift-65)%25 + 65);
 			else
-				result += char(int(input[i]+shift-97)%26 + 97);	
+				result += char(int(input[i]+shift-97)%25 + 97);	
 		}
 		else
 			result += input[i];
@@ -55,14 +57,14 @@ string VigenereCipher(string input, string key)
 	for (int i = 0; i < 26; ++i)
 	{
 		for (int j = 0; j < 26; ++j)
-			EncryptTable[i][j] = char(65+(i+j)%26);
+			EncryptTable[i][j] = char(65+(i+j)%25);
 	}
 
 	for (int i = 0; i < input.length(); ++i)
 	{
 		if(input[i] != char(32))
 		{
-			char newChar = EncryptTable[int(input[i])%26][int((key[i])%key.length())%26];
+			char newChar = EncryptTable[int(input[i])%25][int((key[i])%key.length())%25];
 			result += newChar;
 		}
 		else
@@ -78,16 +80,61 @@ string VigenereCipher(string input, string key)
 	return result;
 }
 
-string MatrixCipher(string input, int size)
+string HillCipher(string input, int size)
 {
+	//Number of dimensions in the plaintext vector
+	int dimSize = input.length();
+
 	//Declare Matrix
-	char EncryptMatrix[input.length()][input.length()];
+	int EncryptMatrix[dimSize][dimSize];
+	
 	//Initialize matrix values
-	for(int i = 0; i < input.length(); i++) 
+	srand((unsigned)time(0));
+	for(int i = 0; i < dimSize; i++) 
 	{
-		for(int j = 0; j < input.length(); j++)
-			EncryptMatrix[i][j] = 0;
+		for(int j = 0; j < dimSize; j++)
+			EncryptMatrix[i][j] = (rand()%1000)+1;
 	}
+	
+	for(int i = 0; i < dimSize; i++) 
+	{
+		for(int j = 0; j < dimSize; j++)
+			printf("%d\n", EncryptMatrix[i][j]);
+	}
+	//Convert plaintext to uppercase
+	for(int i = 0; i < dimSize; i++)
+		input[i] = toupper(input[i]);
+	string result = "";
+
+	//Add ASCII values to plaintext vector
+	int charVals[dimSize];
+	for (int i = 0; i < dimSize; i++)
+	{
+		charVals[i] = int(input[i]%25);
+		printf("%d\n", charVals[i]);
+	}
+
+	//Encrypted vector to decode from
+	int resultVec[dimSize];
+	for (int i = 0; i < dimSize; ++i)
+		resultVec[i] = 0;
+
+	//Multiply plaintext vector with Encryption Matrix
+	for(int j = 0; j < dimSize; j++)
+	{
+		for(int i = 0; i < dimSize; i++)
+		{
+			resultVec[j] += (EncryptMatrix[i][j]*charVals[j]);
+		}
+		resultVec[j] = (resultVec[j]%25) + 65;
+	}
+
+	for(int i = 0; i < dimSize; i++)
+	{
+		result += char(resultVec[i]);	
+	}
+
+	return result;
 }
 
 /* Takes in a file name
@@ -144,7 +191,12 @@ int main(int argc, char const *argv[])
 		}
 		else if(choice == 3) //Matrix Cipher
 		{
-
+			string Encrypted = HillCipher(input, input.length());
+			cout << "\n\nPlaintext: " << input;
+			cout << "\nSize of Matrix: " << input.length() 
+			<< 'x' << input.length();
+			cout << "\nEncrypted: " << Encrypted << endl;
+			fo << Encrypted << endl;
 		}
 	}
 	fo.close();
