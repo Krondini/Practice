@@ -22,7 +22,18 @@
 	<div style="font-family: courier;">
 		<h1>My First Heading</h1>
 		<p>My first paragraph</p>
-		<button>Click me!</button>
+
+		<form action="/get_names" method="GET">
+			First Name: <input type="text" name="first_name"><br>
+			Last Name: <input type="text" name="last_name"></input><br>
+			<input type="submit" value="Submit">
+		</form>
+
+		<form action="/post_names" method="POST">
+			First Name: <input type="text" name="first_name"><br>
+			Last Name: <input type="text" name="last_name"></input><br>
+			<input type="submit" value="Submit">
+		</form>
 	</div>
 </body>
 </html>
