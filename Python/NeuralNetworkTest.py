@@ -1,4 +1,5 @@
 import numpy as np
+import scipy as sci
 import sys
 
 def sigmoid(x):
@@ -11,7 +12,7 @@ def neural(in1, in2, w1, w2, bias):
 def main(argv):
 	print(argv[0])
 	test_in1 = np.random.randn()
-	test_in1 = 
+	test_in2 = 0
 
 if __name__ == '__main__':
 	main(sys.argv)
