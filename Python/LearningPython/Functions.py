@@ -46,7 +46,7 @@ def main():
 	n_digitalRoot = int(input("Please enter a number to find the Digital Root of: "))
 	answer = digitalRoot(n_digitalRoot)
 	
-	print("Digital Root of %d is: %d"%(n_digitalRoot,answer))
+	print("Digital Root of %d is: %d" % (n_digitalRoot,answer))
 	return 0
 
 if __name__ == '__main__':
