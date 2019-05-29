@@ -37,12 +37,20 @@ def organizeData(dataset):
 	while((type(org_choice) != int) or (org_choice < 1 or org_choice > 5)):
 		org_choice = int(input('> '))
 	if org_choice == 1:
+		print("Sorting by Name")
 		sortLL(dataset, 0)
 	elif org_choice == 2:
+		print("Sorting by Release Year")
 		sortLL(dataset, 1)
 	elif org_choice == 3:
+		print("Sorting by ESRB")
 		sortLL(dataset, 2)
-	elif
+	elif org_choice == 4:
+		print("Sorting by Genre")
+		sortLL(dataset, 3)
+	elif org_choice == 5:
+		print("Sorting by Platform")
+		sortLL(dataset, 4)
 
 def readFile(filename):
 	fo = open(filename, 'r')
