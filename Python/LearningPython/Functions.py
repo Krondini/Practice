@@ -6,7 +6,7 @@ def rectangle(n,m):
 			print('*',end='')
 		print('')
 
-def addExcitement1(list_of_strings):
+def addExcitement(list_of_strings):
 	for item in range(len(list_of_strings)):
 		list_of_strings[item] += '!'
 	return list_of_strings
@@ -24,20 +24,21 @@ def main():
 	n_rectangle = int(input("Please enter the number of rows\nfor function 'rectangle': "))
 	m_rectangle = int(input("Please enter the number of columns\nfor function 'rectangle': "))
 	rectangle(n_rectangle,m_rectangle)
+	print('')
 
 	#Task 2
 	list_of_strings = []
 	while True:
-		print("If you would like to exit, enter '0'")
+		print("If you would like to exit, enter ''")
 		new_item = input("Please enter a string: ")
-		if(new_item == '0'):
+		if(new_item == ''):
 			break
 		list_of_strings.append(new_item)
 
 	print("Before: ", end='')
 	print(list_of_strings)
 
-	list_of_strings = addExcitement1(list_of_strings)
+	list_of_strings = addExcitement(list_of_strings)
 	
 	print("\nAfter: ", end='')
 	print(list_of_strings)
@@ -47,6 +48,8 @@ def main():
 	answer = digitalRoot(n_digitalRoot)
 	
 	print("Digital Root of %d is: %d" % (n_digitalRoot,answer))
+
+
 	return 0
 
 if __name__ == '__main__':
