@@ -37,6 +37,17 @@ def binom(n, k):
 	#binomial coefficient defined as (n!/(k!*(n-k)!))
 	return (math.factorial(n)/(math.factorial(k)*(math.factorial(n-k))))
 
+def case_change(str1):
+	str2 = ''
+	for letter in str1:
+		if(letter.isupper()):
+			str2 += letter.lower()
+		elif(letter.islower()):
+			str2 += letter.upper()
+		else:
+			str2 += letter
+	return str2
+
 def main():
 	#Task 1
 	n_rectangle = int(input("Please enter the number of rows\nfor function 'rectangle': "))
@@ -113,6 +124,21 @@ def main():
 		waiting = input("> ")
 		if waiting == "":break
 	os.system("clear")
+
+	#Task 6
+	print("Case Change:\n")
+	string_change = input("Please enter a string to change:\n")
+	
+	print("Before: %s" % string_change)
+	string_change = case_change(string_change)
+	print("After: %s" % string_change)
+
+	while True:
+		waiting = input("> ")
+		if waiting == "":break
+	os.system("clear")
+
+	#Task 7
 
 	return 0
 
