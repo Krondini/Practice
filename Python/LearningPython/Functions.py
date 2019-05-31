@@ -138,8 +138,6 @@ def main():
 		if waiting == "":break
 	os.system("clear")
 
-	#Task 7
-
 	return 0
 
 if __name__ == '__main__':
