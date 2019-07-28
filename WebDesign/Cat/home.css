@@ -1,0 +1,45 @@
+html{
+	height: 100%;
+}
+
+body
+{
+	height: 100%;
+	margin: 0;
+	background: green;
+	background-image: linear-gradient(white, grey);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+div{
+	text-align: center;
+	padding: 10px 0px;
+}
+
+ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-image: linear-gradient(white, black);
+}
+
+li{
+	float: left;
+	display: inline;
+}
+
+li a
+{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover{
+	background-image: linear-gradient(black, white);
+}
