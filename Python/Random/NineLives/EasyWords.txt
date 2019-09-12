@@ -1,0 +1,8 @@
+apple
+hello
+pizza
+you
+new
+true
+man
+woman
