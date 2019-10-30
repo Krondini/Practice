@@ -10,9 +10,11 @@ do
 	cp $file $FolderForScript
 done
 
+cd $FolderForScript
+
 # Process midis
-for file in $FolderForScript.mid
+for file in *.mid
 do
 	echo "Processing $file..."
-	python3 
+	python3 midi.py $file
 done
