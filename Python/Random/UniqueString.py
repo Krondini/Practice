@@ -7,7 +7,7 @@ def checkUnique(letter, dict_letters):
 
 def main(args):
 	
-	string_to_check = argv[1].upper()
+	string_to_check = args[1].upper()
 	dict_letters = {}
 	for i in ascii_uppercase:
 		dict_letters[i] = 0
