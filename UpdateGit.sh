@@ -1,3 +1,3 @@
 git add .
 git commit -m "General Update"
-git push --repo https://Krondini:Australia57_!
+git push --repo https://github.com/Krondini:Australia57_!
