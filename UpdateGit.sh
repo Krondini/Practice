@@ -2,6 +2,7 @@ git add .
 git commit -m "General Update"
 git push origin
 
-expect "Krondini"
-
-expect "Australia57_!"
+sleep 1
+grep "Krondini"
+sleep 1
+grep "Australia57_!"
