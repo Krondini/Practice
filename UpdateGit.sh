@@ -1,6 +1,3 @@
 git add .
 git commit -m "General Update"
-git push origin
-sleep 1 
-cat Krondini
-cat Australia57_!
+git push --repo https://Krondini:Australia57_!
