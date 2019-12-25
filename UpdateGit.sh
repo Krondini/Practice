@@ -2,5 +2,7 @@ git add .
 git commit -m "General Update"
 git push origin
 
-send Krondini
-send Australia57_!
+sleep 1
+Krondini \\
+sleep 1
+Australia57_!
