@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "Nim.h"
 
-int main(int argc, char const *argv[])
+void nimGame(void)
 {
 	bool p1_turn = true;
 	short int curr_score = 20;
@@ -69,5 +70,4 @@ int main(int argc, char const *argv[])
 		}
 		printf("Computer wins, so sorry %s\n", p1_name);
 	}
-	return 0;
 }
