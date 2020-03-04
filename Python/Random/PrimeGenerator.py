@@ -1,4 +1,5 @@
 import sys
+import csv
 
 '''
 Takes in a potential prime 'num'
@@ -25,7 +26,11 @@ def main(argv):
 		if(isPrime(i)):
 			list_of_primes.append(i)
 
-	print(list_of_primes)
+	with open("List_of_primes.csv", 'w', newline='') as csvfile:
+		write = csv.writer(csvfile, delimiter=',')
+		
+		write.writerow(list_of_primes)
+
 	return 0
 
 if __name__ == '__main__':
