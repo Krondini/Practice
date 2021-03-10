@@ -1,8 +1,9 @@
 import smtplib, ssl
 
-def sendEmail(message, sender="cat.cs.development@gmail.com", receiver="catrondini@gmail.com"):
+def sendEmail(message, sender="cat.cs.development@gmail.com", receiver="catrondini@gmail.com", password=None):
     port = 465 #SSL Connection
-    password = input("Please enter password: ")
+    if password == None:
+        password = input("Please enter password: ")
     context = ssl.create_default_context()
 
 
